@@ -1,0 +1,24 @@
+<?php 
+if(isset($this->form)) {
+	$this->form->setAction($this->url());
+	
+	$this->form->setMethod('post');
+
+	$this->form->addElement('radio', 'delete', array(
+		'label' => 'Are you sure you want to delete this comment?',
+		'required' => true,
+		'multiOptions'=>array(
+			0 => 'No',
+			1 => 'Yes'
+		),
+		'separator' => '',
+		'value' => 0,
+	));
+
+	$this->form->addElement('submit', 'submit', array(
+		'ignore' => true,
+		'label' => 'Submit',
+	));
+
+	echo $this->form;
+}

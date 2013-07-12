@@ -1,0 +1,9 @@
+<p><a href="<?php echo $this->url(array( 'controller' => 'guestbook', 'action' => 'sign' ), 'default', 'true') ?>">Sign Our Guestbook</a></p>
+
+Guestbook Entries: <br />
+<dl>
+	<?php foreach($this->entries as $entry): ?> <?php $delete_url = $this->url(array('controller' => 'guestbook', 'action' => 'delete', 'id' => $entry->id), 'default', 'true'); ?> 
+	<dt><?php echo $this->escape($entry->email) ?> [<a href="<?php echo $delete_url ?>">x</a>]</dt>
+	<dd><?php echo $this->escape($entry->comment) ?></dd><br />
+	<?php endforeach; ?> 
+</dl>
